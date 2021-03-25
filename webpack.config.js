@@ -27,7 +27,8 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     assetModuleFilename: 'images/[hash].[ext][query]',
     filename: 'js/[name].[fullhash].js',
-    chunkFilename: 'js/[name].[contenthash].js'
+    chunkFilename: 'js/[name].[contenthash].js',
+    publicPath: '/'
   },
   module: {
     rules: [
@@ -67,7 +68,7 @@ module.exports = {
     alias: {
       assets: path.resolve(__dirname, './src/assets'),
       api: path.resolve(__dirname, './src/api'),
-      componetns: path.resolve(__dirname, './src/components'),
+      components: path.resolve(__dirname, './src/components'),
       ui: path.resolve(__dirname, './src/ui')
     },
     modules: ['src', 'node_modules'],
@@ -87,7 +88,9 @@ module.exports = {
   devtool: 'source-map',
   devServer: {
     contentBase: './dist',
-    hot: true
+    historyApiFallback: true,
+    hot: true,
+    port: 1234
   },
   optimization: optimization
 }
